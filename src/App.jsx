@@ -15,28 +15,27 @@ function App() {
   const [tarefas, setTarefas] = useState([]);
   const [erro, setErro] = useState([]);
   const [carregando, setCarregando] = useState(true);
-}
 
-useEffect(() => {
-  carregarTarefas();
-}, []);
+  useEffect(() => {
+    carregarTarefas();
+  }, []);
 
-async function carregarTarefas() {
-  try {
-    setCarregando(true);
-    setErro("");
+  async function carregarTarefas() {
+    try {
+      setCarregando(true);
+      setErro("");
 
-    const dados = await buscarTarefas();
-    setTarefas(dados);
-  } catch (error) {
-    console.error(error);
-    setErro(
-      "Não foi possivel carregar as tarefas, Verifique se o JSON Server está rodando",
-    );
-  } finally {
-    setCarregando(false);
+      const dados = await buscarTarefas();
+      setTarefas(dados);
+    } catch (error) {
+      console.error(error);
+      setErro(
+        "Não foi possivel carregar as tarefas, Verifique se o JSON Server está rodando",
+      );
+    } finally {
+      setCarregando(false);
+    }
   }
-
   async function adicionarTarefa(titulo) {
     try {
       setErro("");
@@ -114,7 +113,7 @@ async function carregarTarefas() {
           />
         )}
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

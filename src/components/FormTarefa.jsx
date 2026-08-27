@@ -24,6 +24,8 @@ function FormTarefa({ onAdicionar }) {
         value={titulo}
         onChange={(event) => setTitulo(event.target.value)}
       />
+
+      <button type="submit">Adicionar</button>
     </form>
   );
 }
